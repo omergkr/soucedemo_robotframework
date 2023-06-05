@@ -1,4 +1,5 @@
 from robot.libraries.BuiltIn import BuiltIn
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support import expected_conditions as EC
@@ -20,7 +21,11 @@ def click_with_locator(locator: tuple, time: int = 10):
 
 
 def wait_until_element_is_visible(locator: tuple, time: int = 10):
-    get_wait().until(EC.visibility_of_element_located(locator))
+    try:
+        get_wait().until(EC.visibility_of_element_located(locator))
+        return True
+    except TimeoutException:
+        return False
 
 
 def wait_until_element_is_clickable(locator: tuple, time: int = 10):

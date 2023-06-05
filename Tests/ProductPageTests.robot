@@ -30,5 +30,12 @@ User should be able to add a prodcut to cart
 Randomly selected product can be added to the cart
     [Tags]    random
     Common.login with valid credantials
-    @{random_product_name}    ProductPage.select product randomly
-    InventoryPage.verify selected product name and price    ${random_product_name}[0]    ${random_product_name}[1]
+    @{random_product_name_and_price}    ProductPage.select product randomly
+    InventoryPage.verify selected product name and price    ${random_product_name_and_price}[0]    ${random_product_name_and_price}[1]
+
+
+Compare the products on the product page with the product list (csv)
+    [Tags]    compare
+    Common.login with valid credantials
+    ${InvalidLoginScenarious}    Get Csv Data    ${PRODUCT_NAME_AND_PRICE_PATH}
+    ProductPage.compare products with csv product data    ${InvalidLoginScenarious}

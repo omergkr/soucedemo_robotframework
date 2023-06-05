@@ -11,6 +11,7 @@ class InventoryPage:
     __shopping_cart_badge = (By.XPATH, "//span[@class='shopping_cart_badge']")
     __shopping_cart_container = (By.ID, "shopping_cart_container")
     __add_to_cart_button_text = "Add to cart"
+    __first_shopping_cart_badge_value = None
 
     def __init__(self):
         self.driver = BuiltIn().get_variable_value("${DRIVER_INSTANCE}")
@@ -29,14 +30,21 @@ class InventoryPage:
         assert expected_price == current_name_and_price["product_price"]
 
     def click_add_to_cart_button(self):
+        self.__first_shopping_cart_badge_value = self.get_check_shopping_cart_badge_value()
+        print(self.__first_shopping_cart_badge_value)
         click_button_with_button_text_and_locator(self.__add_to_cart_button_text)
 
     def get_check_shopping_cart_badge_value(self):
-        return int(get_text(self.__shopping_cart_badge))
+        if wait_until_element_is_visible(self.__shopping_cart_badge):
+            return int(get_text(self.__shopping_cart_badge))
+        else:
+            return 0
+        # return int(get_text(self.__shopping_cart_badge))
 
     def check_shopping_cart_badge(self):
         current_check_shopping_cart_badge = self.get_check_shopping_cart_badge_value()
-        assert int(current_check_shopping_cart_badge) > 0
+        print(current_check_shopping_cart_badge)
+        assert int(current_check_shopping_cart_badge) > self.__first_shopping_cart_badge_value
 
     def click_shopping_cart_container(self):
         click_with_locator(self.__shopping_cart_container)

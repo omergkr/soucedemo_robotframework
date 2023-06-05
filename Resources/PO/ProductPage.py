@@ -1,3 +1,4 @@
+import csv
 import random
 from NewBasePage import *
 from robot.libraries.BuiltIn import BuiltIn
@@ -33,8 +34,8 @@ class ProductPage:
         return name_and_price_list
 
     def get_selected_product_price(self, product_name):
-        element_list = self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item_name")
-        price_list = self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item_price")
+        element_list = self.get_product_name_list()
+        price_list = self.get_product_price_list()
 
         index = 0
         for element in element_list:
@@ -42,3 +43,24 @@ class ProductPage:
                 break
             index += 1
         return price_list[index].text
+
+    def compare_products_with_csv_product_data(self, list_name_and_price):
+        current_element_name_list = self.get_product_name_list()
+        current_element_price_list = self.get_product_price_list()
+
+        index = 0
+        for products in list_name_and_price:
+            print(products[0])
+            print(products[1])
+            print(current_element_name_list[index].text)
+            print(current_element_price_list[index].text)
+
+            assert products[0] == current_element_name_list[index].text
+            assert products[1] == current_element_price_list[index].text
+            index += 1
+
+    def get_product_name_list(self):
+        return self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item_name")
+
+    def get_product_price_list(self):
+        return self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item_price")
