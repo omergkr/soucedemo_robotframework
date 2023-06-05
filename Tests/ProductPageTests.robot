@@ -27,5 +27,8 @@ User should be able to add a prodcut to cart
 
 
 
-
-
+Randomly selected product can be added to the cart
+    [Tags]    random
+    Common.login with valid credantials
+    @{random_product_name}    ProductPage.select product randomly
+    InventoryPage.verify selected product name and price    ${random_product_name}[0]    ${random_product_name}[1]
