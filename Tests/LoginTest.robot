@@ -5,8 +5,8 @@ Library    ../Resources/PO/ProductPage.py
 Library    ../CustomLibs/Csv.py
 Resource    ../Tests/Common.robot
 Resource    ../Data/inputData.robot
-Suite Setup    Create Driver Instance
-Suite Teardown   Close Driver Instance
+Suite Setup    Common.create driver instance
+Suite Teardown   Common.close driver instance
 
 *** Test Cases ***
 User should be able to log in with valid credantials
@@ -20,7 +20,7 @@ User should be able to log in with valid credantials
 
 Invalid login scenarios should display correct error messages
     [Tags]    LoginPage    negative
-    [Template]    Test Negativ Multiple Login Scenarios
+    [Template]    Common.test negativ multiple login scenarios
     ${WITH_INVALID_USER_NAME}
     ${WITH_INVALID_USER_PASSWORD}
     ${WITH_INVALID_USER_NAME_AND_PASSWORD}
@@ -30,8 +30,8 @@ Invalid login scenarios should display correct error messages
 
 Should see correct error messages with invalid logins (csv)
     [Tags]    LoginPage    negative    csv
-    ${InvalidLoginScenarious}    Get Csv Data    ${INVALID_CREDENTIALS_PATH_CSV}
-    Login With Invalid Csv Data    ${InvalidLoginScenarious}
+    ${InvalidLoginScenarious}    Common.get csv data    ${INVALID_CREDENTIALS_PATH_CSV}
+    Common.login with invalid csv data    ${InvalidLoginScenarious}
 
 
 

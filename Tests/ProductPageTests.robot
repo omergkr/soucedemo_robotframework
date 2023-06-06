@@ -7,8 +7,8 @@ Library    ../CustomLibs/Csv.py
 Resource    ../Tests/Common.robot
 Resource    ../Data/inputData.robot
 
-Suite Setup    Create Driver Instance
-Suite Teardown   Close Driver Instance
+Suite Setup    Common.create driver instance
+Suite Teardown   Common.close driver instance
 
 *** Variables ***
 ${SELECTED_PRODUCT_NAME}    Sauce Labs Backpack
@@ -37,12 +37,12 @@ Randomly selected product can be added to the cart
 Compare the products on the product page with the product list (csv)
     [Tags]    productPage    compare
     Common.login with valid credantials
-    ${InvalidLoginScenarious}    Get Csv Data    ${PRODUCT_NAME_AND_PRICE_PATH}
+    ${InvalidLoginScenarious}    Common.get csv data    ${PRODUCT_NAME_AND_PRICE_PATH}
     ProductPage.compare products with csv product data    ${InvalidLoginScenarious}
 
 Sort products with value
     [Tags]    productPage    sort
-    [Template]   Test multiple scenarios with sorted value
+    [Template]   Common.test multiple scenarios with sorted value
     ${WITH_Name_A_TO_Z}
     ${WITH_Name_Z_TO_A}
     ${WITH_PRICE_LOW_TO_HIGH}
