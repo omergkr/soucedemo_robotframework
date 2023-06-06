@@ -39,3 +39,11 @@ Compare the products on the product page with the product list (csv)
     Common.login with valid credantials
     ${InvalidLoginScenarious}    Get Csv Data    ${PRODUCT_NAME_AND_PRICE_PATH}
     ProductPage.compare products with csv product data    ${InvalidLoginScenarious}
+
+Sort products with value
+    [Tags]    sort
+    [Template]   Test multiple scenarios with sorted value
+    ${WITH_Name_A_TO_Z}
+    ${WITH_Name_Z_TO_A}
+    ${WITH_PRICE_LOW_TO_HIGH}
+    ${WITH_PRICE_HIGH_TO_LOW}

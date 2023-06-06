@@ -17,5 +17,13 @@ ${INVALID_CREDENTIALS_PATH_CSV}    C:/Users/ÖmerGöker/PycharmProjects/soucedem
 &{WITH_EMPTY_USER_NAME_AND_PASSWORD}    email=    password=    errorMessage=Epic sadface: Username is required
 
 
+${WITH_Name_A_TO_Z}    Name (A to Z)
+${WITH_Name_Z_TO_A}    Name (Z to A)
+${WITH_PRICE_LOW_TO_HIGH}    Price (low to high)
+${WITH_PRICE_HIGH_TO_LOW}    Price (high to low)
+
+
+
+
 
 

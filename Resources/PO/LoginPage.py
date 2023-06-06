@@ -3,7 +3,7 @@ from robot.libraries.BuiltIn import BuiltIn
 from selenium.webdriver.common.by import By
 
 
-class LoginPage():
+class LoginPage:
     __user_name_field = (By.ID, "user-name")
     __password_field = (By.ID, "password")
     __login_button = (By.ID, "login-button")

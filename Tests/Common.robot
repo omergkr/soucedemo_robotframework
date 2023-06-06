@@ -40,3 +40,9 @@ Login With Invalid Csv Data
         run keyword and continue on failure    LoginPage.click login button
         run keyword and continue on failure    LoginPage.verify login page error message    ${LoginScenario}[2]
     END
+
+Test multiple scenarios with sorted value
+    [Arguments]     ${Credentials}
+     Login with valid credantials
+     ProductPage.select sort drop down menu with text   ${Credentials}
+     ProductPage.verify product sorted by text    ${Credentials}

@@ -8,4 +8,3 @@ def read_csv_file(filename):
         for row in reader:
             data.append(row)
     return data
-

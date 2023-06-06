@@ -1,8 +1,4 @@
-from robot.api.deco import keyword
 from robot.libraries.BuiltIn import BuiltIn
-from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-
 from selenium import webdriver
 
 
