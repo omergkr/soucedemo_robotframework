@@ -29,9 +29,7 @@ class ProductPage:
         element_list = self.driver.find_elements(By.CSS_SELECTOR, ".inventory_item_name")
         random_element = random.choice(element_list)
         random_element_name = random_element.text
-        print(random_element_name)
         price = self.get_selected_product_price(random_element_name)
-        print(price)
         random_element.click()
         name_and_price_list = [random_element_name, price]
         return name_and_price_list
@@ -53,10 +51,6 @@ class ProductPage:
 
         index = 0
         for products in list_name_and_price:
-            print(products[0])
-            print(products[1])
-            print(current_element_name_list[index].text)
-            print(current_element_price_list[index].text)
 
             assert products[0] == current_element_name_list[index].text
             assert products[1] == current_element_price_list[index].text
@@ -79,12 +73,8 @@ class ProductPage:
         return price_text_list
 
     def select_sort_drop_down_menu_with_text(self, text):
-        print(text)
         self.__product_name_list = self.get_product_name_text_list()
         self.__product_price_list = self.get_product_price_text_list()
-
-        print(self.__product_name_list)
-        print(self.__product_price_list)
 
         dropdown = self.driver.find_element(By.CSS_SELECTOR, ".product_sort_container")
         select = Select(dropdown)

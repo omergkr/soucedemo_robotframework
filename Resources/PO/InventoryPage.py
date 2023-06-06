@@ -28,7 +28,6 @@ class InventoryPage:
 
     def click_add_to_cart_button(self):
         self.__first_shopping_cart_badge_value = self.get_check_shopping_cart_badge_value()
-        print(self.__first_shopping_cart_badge_value)
         click_button_with_button_text_and_locator(self.__add_to_cart_button_text)
 
     def get_check_shopping_cart_badge_value(self):
@@ -36,11 +35,9 @@ class InventoryPage:
             return int(get_text(self.__shopping_cart_badge))
         else:
             return 0
-        # return int(get_text(self.__shopping_cart_badge))
 
     def check_shopping_cart_badge(self):
         current_check_shopping_cart_badge = self.get_check_shopping_cart_badge_value()
-        print(current_check_shopping_cart_badge)
         assert int(current_check_shopping_cart_badge) > self.__first_shopping_cart_badge_value
 
     def click_shopping_cart_container(self):

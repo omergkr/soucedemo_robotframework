@@ -10,26 +10,26 @@ def find_with_locator(locator: tuple) -> WebElement:
     return get_current_driver().find_element(*locator)
 
 
-def type_with_locator(locator: tuple, text: str, time: int = 10):
+def type_with_locator(locator: tuple, text: str, time: int = 5):
     wait_until_element_is_visible(locator, time)
     find_with_locator(locator).send_keys(text)
 
 
-def click_with_locator(locator: tuple, time: int = 10):
+def click_with_locator(locator: tuple, time: int = 5):
     wait_until_element_is_clickable(locator, time)
     find_with_locator(locator).click()
 
 
-def wait_until_element_is_visible(locator: tuple, time: int = 10):
+def wait_until_element_is_visible(locator: tuple, time: int = 5):
     try:
-        get_wait().until(EC.visibility_of_element_located(locator))
+        get_wait(time).until(EC.visibility_of_element_located(locator))
         return True
     except TimeoutException:
         return False
 
 
-def wait_until_element_is_clickable(locator: tuple, time: int = 10):
-    get_wait().until(EC.element_to_be_clickable(locator))
+def wait_until_element_is_clickable(locator: tuple, time: int = 5):
+    get_wait(time).until(EC.element_to_be_clickable(locator))
 
 
 def get_text(locator: tuple, time: int = 10) -> str:
@@ -47,5 +47,5 @@ def get_current_driver():
     return BuiltIn().get_variable_value("${DRIVER_INSTANCE}")
 
 
-def get_wait():
-    return WebDriverWait(get_current_driver(), 5)
+def get_wait(time):
+    return WebDriverWait(get_current_driver(), time)
