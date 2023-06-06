@@ -1,6 +1,6 @@
 import random
 from selenium.webdriver.support.ui import Select
-from NewBasePage import *
+from BasePage import *
 from robot.libraries.BuiltIn import BuiltIn
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait

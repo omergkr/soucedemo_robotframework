@@ -1,4 +1,4 @@
-from NewBasePage import *
+from BasePage import *
 from robot.libraries.BuiltIn import BuiltIn
 from selenium.webdriver.common.by import By
 
