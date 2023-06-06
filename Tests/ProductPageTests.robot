@@ -16,7 +16,7 @@ ${SELECTED_PRODUCT_PRICE}    $29.99
 
 *** Test Cases ***
 User should be able to add a prodcut to cart
-    [Tags]    addtocart
+    [Tags]    productPage    addtocart
     Common.login with valid credantials
     ProductPage.select product with name    ${SELECTED_PRODUCT_NAME}
     InventoryPage.verify selected product name and price    ${SELECTED_PRODUCT_NAME}      ${SELECTED_PRODUCT_PRICE}
@@ -28,20 +28,20 @@ User should be able to add a prodcut to cart
 
 
 Randomly selected product can be added to the cart
-    [Tags]    random
+    [Tags]    productPage    random
     Common.login with valid credantials
     @{random_product_name_and_price}    ProductPage.select product randomly
     InventoryPage.verify selected product name and price    ${random_product_name_and_price}[0]    ${random_product_name_and_price}[1]
 
 
 Compare the products on the product page with the product list (csv)
-    [Tags]    compare
+    [Tags]    productPage    compare
     Common.login with valid credantials
     ${InvalidLoginScenarious}    Get Csv Data    ${PRODUCT_NAME_AND_PRICE_PATH}
     ProductPage.compare products with csv product data    ${InvalidLoginScenarious}
 
 Sort products with value
-    [Tags]    sort
+    [Tags]    productPage    sort
     [Template]   Test multiple scenarios with sorted value
     ${WITH_Name_A_TO_Z}
     ${WITH_Name_Z_TO_A}

@@ -10,7 +10,7 @@ Suite Teardown   Close Driver Instance
 
 *** Test Cases ***
 User should be able to log in with valid credantials
-    [Tags]    instance
+    [Tags]    LoginPage    posstive
     LoginPage.open login page    ${URL}
     LoginPage.input username    ${EMAIL}
     LoginPage.input password    ${PASSWORD}
@@ -19,7 +19,7 @@ User should be able to log in with valid credantials
 
 
 Invalid login scenarios should display correct error messages
-    [Tags]    instance1
+    [Tags]    LoginPage    negative
     [Template]    Test Negativ Multiple Login Scenarios
     ${WITH_INVALID_USER_NAME}
     ${WITH_INVALID_USER_PASSWORD}
@@ -29,7 +29,7 @@ Invalid login scenarios should display correct error messages
     ${WITH_EMPTY_USER_NAME_AND_PASSWORD}
 
 Should see correct error messages with invalid logins (csv)
-    [Tags]    instance2
+    [Tags]    LoginPage    negative    csv
     ${InvalidLoginScenarious}    Get Csv Data    ${INVALID_CREDENTIALS_PATH_CSV}
     Login With Invalid Csv Data    ${InvalidLoginScenarious}
 
