@@ -7,6 +7,7 @@ class InventoryPage:
     __product_price = (By.XPATH, "//div[@class='inventory_details_price']")
     __shopping_cart_badge = (By.XPATH, "//span[@class='shopping_cart_badge']")
     __shopping_cart_container = (By.ID, "shopping_cart_container")
+    __back_to_products_button = (By.ID, "back-to-products")
     __add_to_cart_button_text = "Add to cart"
     __first_shopping_cart_badge_value = None
 
@@ -56,3 +57,6 @@ class InventoryPage:
 
         assert current_product_name == expected_name
         assert current_product_price == expected_price
+
+    def click_back_to_products(self):
+        click_with_locator(self.__back_to_products_button)

@@ -10,17 +10,17 @@ def find_with_locator(locator: tuple) -> WebElement:
     return get_current_driver().find_element(*locator)
 
 
-def type_with_locator(locator: tuple, text: str, time: int = 5):
+def type_with_locator(locator: tuple, text: str, time: int = 10):
     wait_until_element_is_visible(locator, time)
     find_with_locator(locator).send_keys(text)
 
 
-def click_with_locator(locator: tuple, time: int = 5):
+def click_with_locator(locator: tuple, time: int = 10):
     wait_until_element_is_clickable(locator, time)
     find_with_locator(locator).click()
 
 
-def wait_until_element_is_visible(locator: tuple, time: int = 5):
+def wait_until_element_is_visible(locator: tuple, time: int = 10):
     try:
         get_wait(time).until(EC.visibility_of_element_located(locator))
         return True
@@ -28,7 +28,7 @@ def wait_until_element_is_visible(locator: tuple, time: int = 5):
         return False
 
 
-def wait_until_element_is_clickable(locator: tuple, time: int = 5):
+def wait_until_element_is_clickable(locator: tuple, time: int = 10):
     get_wait(time).until(EC.element_to_be_clickable(locator))
 
 
