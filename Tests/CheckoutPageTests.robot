@@ -9,7 +9,7 @@ Suite Setup    Common.create driver instance
 Suite Teardown   Common.close driver instance
 
 *** Test Cases ***
-User should be able to order a prodcut
+User should be able to order a product
     [Tags]    checkoutPage
     Common.login with valid credantials
     ProductPage.select product with name    Sauce Labs Bike Light
