@@ -33,3 +33,6 @@ class CartPage:
         except NoSuchElementException:
             print("Element not found on the page")
             assert True
+
+    def click_checkout_button(self):
+        click_with_locator(self.__checkout_button)

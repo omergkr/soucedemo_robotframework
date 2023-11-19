@@ -43,6 +43,12 @@ def click_button_with_button_text_and_locator(button_text: str):
     click_with_locator(button_locator)
 
 
+def type_with_field_text_and_locator(field_text: str, input_text: str):
+    field_xpath = f"//input[contains(@placeholder, '{field_text}')]"
+    field_locator = (By.XPATH, field_xpath)
+    type_with_locator(field_locator, input_text)
+
+
 def get_current_driver():
     return BuiltIn().get_variable_value("${DRIVER_INSTANCE}")
 

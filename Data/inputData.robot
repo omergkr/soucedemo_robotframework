@@ -6,8 +6,8 @@ ${URL}    https://www.saucedemo.com/
 ${EMAIL}        standard_user
 ${PASSWORD}    secret_sauce
 
-${PRODUCT_NAME_AND_PRICE_PATH}    C:/Users/ÖmerGöker/PycharmProjects/soucedemo_robotframework/Data/productData.csv
-${INVALID_CREDENTIALS_PATH_CSV}    C:/Users/ÖmerGöker/PycharmProjects/soucedemo_robotframework/Data/userData.csv
+${PRODUCT_NAME_AND_PRICE_PATH}    C:/Users/omerg/PycharmProjects/soucedemo_robotframework/Data/productData.csv
+${INVALID_CREDENTIALS_PATH_CSV}    C:/Users/omerg/PycharmProjects/soucedemo_robotframework/Data/userData.csv
 
 &{WITH_INVALID_USER_NAME}    email=someone@notregistered.com  password=secret_sauce  errorMessage=Epic sadface: Username and password do not match any user in this service
 &{WITH_INVALID_USER_PASSWORD}    email=standard_user  password=TestPassword!  errorMessage=Epic sadface: Username and password do not match any user in this service
